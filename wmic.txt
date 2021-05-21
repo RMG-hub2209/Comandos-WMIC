@@ -1,0 +1,26 @@
+
+#proporciona los nombres cortos de todos los servicios
+--wmic service get name
+
+###proporciona un listado más completo de los servicios##
+--sc query
+##para generar un archivo .txt##
+--sc query > servicios.txt
+
+#Servicio de transferencia inteligente en segundo plano (BITS)=BITS/bits
+#Servicio de panel de escritura a mano y teclado táctil=TabletInputService
+#Servicio de geolocalización=fsvc
+
+##saber el estado de un servicio##
+--sc interrogate nombre_del_servicio
+
+##Obtener información de los servicios##
+--WMIC /Output:STDOUT  SERVICE get /all /format:LIST
+
+##Detener un servicio##
+--Service where caption="Nombre_del_servicio" call stopservice
+
+###Desactivar inicio automático de servicios###
+--wmic service where caption="nombre_de _servicio" call changestartmode Disabled
+
+
